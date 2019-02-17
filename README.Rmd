@@ -1,28 +1,30 @@
-opendata-gganimate-test
-================
-Bob Taylor
-17/02/19
+---
+title: "opendata-gganimate-test"
+author: "Bob Taylor"
+date: "`r format(Sys.time(), '%d/%m/%y')`"
+output: github_document
+---
 
-Introduction
-------------
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
-I recently discovered that –
+## Introduction
+I recently discovered that – 
 
--   the Scottish Parliament has a very useful collection of [OpenData](https://en.wikipedia.org/wiki/Open_data) [datasets](https://data.parliament.scot/)
--   there's an R package called [`gganimate`](https://github.com/thomasp85/gganimate) that can be used to create plot animations.
+* the Scottish Parliament has a very useful collection of [OpenData](https://en.wikipedia.org/wiki/Open_data) [datasets](https://data.parliament.scot/)
+* there's an R package called [`gganimate`](https://github.com/thomasp85/gganimate) that can be used to create plot animations.
 
 Why not stick them together?
 
-Plots
------
-
+## Plots
 The `code.R` script contains the function `generate_archive_opendata` – this accesses the Scottish Parliament's Open Data API and downloads an archive of MSP's Parliamentary Questions since 1999, and then formats/tidies the data etc.
 
 We can use the standard `ggplot` and other `tidyverse` tools to reshape the data as required, and `gganimate` can then be used to animate how things change over time.
 
 ### MSP PQ Activity Over Time
-
-Here we can see how many questions each MSP asked in each year (coloured by the MSP's party). ![](PQs.gif)
+Here we can see how many questions each MSP asked in each year (coloured by the MSP's party).
+![](PQs.gif)
 
 OK, so the MSP names are unavoidably ... somewhat small. And there are only really ~20 time points, with the in-between frames being interpolated by `gganimate`. But it's still fun (and useful) to be able to easily explore the data in this way.
 
@@ -38,7 +40,6 @@ This is nice, but arguably a bit visually confusing. We can smudge things out a 
 
 ![](age_gender_density.gif)
 
-Conclusion
-----------
+## Conclusion
 
-`gganimate` looks like it will be a very useful tool for data visualisation. Possibly care will have to be taken when it comes to choosing how to interpolate and transition; I'd probably err on the side of linear linterpolation for *important* data, unless there's a good reason not to. Also worth tipping the hat to hat to the Scottish Parliament, as their Open Data API is very easy to use and open to all. Good stuff all round.
+`gganimate` looks like it will be a very useful tool for data visualisation. Possibly care will have to be taken when it comes to choosing how to interpolate and transition; I'd probably err on the side of linear linterpolation for *important* data, unless there's a good reason not to. Also worth tipping the hat to hat to the Scottish Parliament, as their Open Data API is very easy to use and open to all. Good stuff all round really.
