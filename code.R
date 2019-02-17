@@ -190,3 +190,27 @@ p3 <- ggplot(MSPs_PQs_age_gender, aes(x=age_years, fill=factor(GenderTypeID))) +
 
 animate(p3, width = 1000, height = 800)
 anim_save("age_gender_density.gif")
+
+# # p3 but with no gridlines etc
+# p4 <- ggplot(MSPs_PQs_age_gender, aes(x=age_years, fill=factor(GenderTypeID))) +
+#   geom_density(bw=4, alpha=.5, linetype=0)  +
+#   labs(title = "{round(frame_time, 0)}", x = "", y = "") +
+#   theme(legend.title=element_blank(),
+#         plot.title = element_blank(),
+#         legend.position = "none") +
+#   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+#        panel.background = element_blank(), axis.line = element_blank(),
+#        axis.title.x=element_blank(),
+#        axis.text.x=element_blank(),
+#        axis.ticks.x=element_blank(),
+#        axis.title.y=element_blank(),
+#        axis.text.y=element_blank(),
+#        axis.ticks.y=element_blank()) +
+#   scale_fill_manual(values=c("orange", "turquoise"), labels=c("female", "male")) +
+#   transition_time(year) +
+#   enter_fade() +
+#   exit_shrink() +
+#   ease_aes('sine-in-out')
+# 
+# animate(p4, width = 1000, height = 800)
+# anim_save("age_gender_density_02.gif")
